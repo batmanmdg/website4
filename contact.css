@@ -1,0 +1,126 @@
+/* General */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #2E8B57; /* Forest green */
+  color: white;
+}
+
+/* Navigation Bar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 25px;
+  background: rgba(0,0,0,0.6);
+}
+
+.navbar .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  opacity: 0.7;
+}
+
+/* Contact Section */
+.contact-section {
+  padding: 50px 20px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.contact-section h2 {
+  text-align: center;
+}
+
+/* Success & Error */
+.success-message {
+  color: #00FF7F; /* SpringGreen */
+  font-weight: bold;
+  text-align: center;
+}
+
+.error-message {
+  color: #FF6347; /* Tomato */
+  font-weight: bold;
+  text-align: center;
+}
+
+/* Form */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 10px;
+  border: 1px solid #888;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Button Animation */
+.animated-btn {
+  padding: 12px;
+  border: none;
+  background: #006400; /* DarkGreen */
+  color: white;
+  font-size: 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.animated-btn:hover {
+  transform: scale(1.05);
+  background: #004d00;
+}
+
+/* Slide-in Animation */
+.slide-in {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideIn 0.6s forwards;
+}
+
+.delay-0 { animation-delay: 0s; }
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.delay-4 { animation-delay: 0.8s; }
+.delay-5 { animation-delay: 1s; }
+.delay-6 { animation-delay: 1.2s; }
+.delay-7 { animation-delay: 1.4s; }
+.delay-8 { animation-delay: 1.6s; }
+.delay-9 { animation-delay: 1.8s; }
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Responsive Menu */
+@media screen and (max-width: 600px) {
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

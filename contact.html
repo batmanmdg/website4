@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - PatStar</title>
+  <link rel="stylesheet" href="contact.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="logo">PatStar</div>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <h2 class="slide-in delay-0">Contact Us</h2>
+
+    <div id="form-messages" class="slide-in delay-1"></div>
+
+    <form id="contact-form" class="contact-form slide-in delay-2"
+          action="https://formspree.io/f/xzzgzvrr" 
+          method="POST">
+      <label class="slide-in delay-3">Name</label>
+      <input type="text" name="name" required class="slide-in delay-4">
+
+      <label class="slide-in delay-5">Email</label>
+      <input type="email" name="email" required class="slide-in delay-6">
+
+      <label class="slide-in delay-7">Message</label>
+      <textarea name="message" rows="5" required class="slide-in delay-8"></textarea>
+
+      <button type="submit" class="animated-btn slide-in delay-9">Send Message</button>
+    </form>
+  </section>
+
+  <script>
+    const form = document.getElementById('contact-form');
+    const messages = document.getElementById('form-messages');
+
+    form.addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      const response = await fetch(form.action, {
+        method: form.method,
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+
+      if(response.ok){
+        messages.innerHTML = '<p class="success-message">Thank you! Your message has been sent.</p>';
+        form.reset();
+      } else {
+        messages.innerHTML = '<p class="error-message">Oops! There was a problem, please try again.</p>';
+      }
+    });
+  </script>
+
+</body>
+</html>
