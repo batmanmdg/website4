@@ -4,13 +4,11 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>PatStar - Home</title>
-
 <style>
-/* Body & colors */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
-  background: #2E8B57; /* Forest green */
+  background: #2E8B57;
   color: white;
 }
 
@@ -20,8 +18,8 @@ nav {
   background: #1F5A3A;
   padding: 15px 20px;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
   position: sticky;
   top: 0;
   z-index: 1000;
@@ -53,7 +51,6 @@ nav .nav-links li a:hover {
   color: #00FF7F;
 }
 
-/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
@@ -70,27 +67,28 @@ nav .nav-links li a:hover {
   transition: all 0.3s ease;
 }
 
-/* Mobile menu */
+/* Mobile dropdown */
 @media screen and (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
   .nav-links {
-    position: absolute;
-    top: 60px;
-    right: 0;
-    background: #1F5A3A;
+    display: none;
     flex-direction: column;
     width: 100%;
-    max-width: 250px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease-in-out;
-    border-radius: 0 0 8px 8px;
+    margin-top: 10px;
+    gap: 10px;
   }
 
   .nav-links.show {
-    transform: translateX(0);
+    display: flex;
   }
 
   .hamburger {
     display: flex;
+    margin-top: 5px;
   }
 }
 
@@ -108,7 +106,6 @@ h1 {
   margin-bottom: 20px;
 }
 
-/* Buttons */
 .btn {
   display: inline-block;
   background: #006400;
@@ -135,10 +132,8 @@ footer {
 }
 </style>
 </head>
-
 <body>
 
-<!-- Navbar -->
 <nav>
   <div class="logo">PatStar</div>
   <ul class="nav-links">
@@ -152,14 +147,12 @@ footer {
   </div>
 </nav>
 
-<!-- Main content -->
 <div class="container">
   <h1>Welcome to PatStar</h1>
   <p>Your tech support and services website. Explore our contact page to get in touch!</p>
   <a href="contact.html" class="btn">Contact Me</a>
 </div>
 
-<!-- Footer -->
 <footer>
   &copy; 2025 PatStar. All rights reserved.
 </footer>
@@ -167,7 +160,6 @@ footer {
 <script>
 const hamburger = document.getElementById("hamburger");
 const navLinks = document.querySelector(".nav-links");
-
 hamburger.addEventListener("click", () => {
   navLinks.classList.toggle("show");
 });
