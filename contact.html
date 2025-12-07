@@ -29,10 +29,9 @@ nav {
 nav .logo {
   font-size: 22px;
   font-weight: bold;
-  flex-shrink: 0;
 }
 
-nav .nav-links {
+.nav-links {
   list-style: none;
   display: flex;
   gap: 20px;
@@ -40,22 +39,21 @@ nav .nav-links {
   padding: 0;
 }
 
-nav .nav-links li a {
+.nav-links li a {
   color: white;
   text-decoration: none;
   font-size: 18px;
-  white-space: nowrap;
 }
 
-nav .nav-links li a:hover {
+.nav-links li a:hover {
   color: #00FF7F;
 }
 
+/* Hamburger */
 .hamburger {
   display: none;
   flex-direction: column;
   cursor: pointer;
-  flex-shrink: 0;
 }
 
 .hamburger span {
@@ -64,22 +62,19 @@ nav .nav-links li a:hover {
   background: white;
   margin: 4px 0;
   border-radius: 2px;
-  transition: all 0.3s ease;
 }
 
-/* Mobile dropdown */
+/* Mobile menu */
 @media screen and (max-width: 768px) {
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
     margin-top: 10px;
     gap: 10px;
+    background: #1F5A3A;
+    padding: 10px 0;
+    border-radius: 0 0 8px 8px;
   }
 
   .nav-links.show {
@@ -88,7 +83,6 @@ nav .nav-links li a:hover {
 
   .hamburger {
     display: flex;
-    margin-top: 5px;
   }
 }
 
@@ -181,15 +175,15 @@ footer {
 
 <nav>
   <div class="logo">PatStar</div>
-  <ul class="nav-links">
-    <li><a href="index.html">Home</a></li>
-    <li><a href="contact.html">Contact</a></li>
-  </ul>
   <div class="hamburger" id="hamburger">
     <span></span>
     <span></span>
     <span></span>
   </div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
 </nav>
 
 <div class="container">
