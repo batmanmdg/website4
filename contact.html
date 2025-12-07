@@ -1,67 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - PatStar</title>
-  <link rel="stylesheet" href="contact.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact — PatStar</title>
+
+    <!-- SEO -->
+    <meta name="description" content="PatStar contact page — send a message anytime.">
+    <meta name="keywords" content="PatStar, contact, support">
+    <meta name="author" content="PatStar">
+
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="logo">PatStar</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-title">PatStar</div>
+        <div class="nav-toggle" id="menuToggle">☰</div>
 
-  <!-- Contact Section -->
-  <section class="contact-section">
-    <h2 class="slide-in delay-0">Contact Us</h2>
+        <ul class="nav-links" id="navMenu">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="contact.html" class="active">Contact</a></li>
+        </ul>
+    </div>
+</nav>
 
-    <div id="form-messages" class="slide-in delay-1"></div>
+<section class="content">
+    <h1>Contact Me</h1>
 
-    <form id="contact-form" class="contact-form slide-in delay-2"
-          action="https://formspree.io/f/xzzgzvrr" 
-          method="POST">
-      <label class="slide-in delay-3">Name</label>
-      <input type="text" name="name" required class="slide-in delay-4">
+    <form action="https://formspree.io/f/mrbzjpva" method="POST" class="contact-form">
+        <label>Your Name</label>
+        <input type="text" name="name" required>
 
-      <label class="slide-in delay-5">Email</label>
-      <input type="email" name="email" required class="slide-in delay-6">
+        <label>Your Email</label>
+        <input type="email" name="email" required>
 
-      <label class="slide-in delay-7">Message</label>
-      <textarea name="message" rows="5" required class="slide-in delay-8"></textarea>
+        <label>Your Message</label>
+        <textarea name="message" required></textarea>
 
-      <button type="submit" class="animated-btn slide-in delay-9">Send Message</button>
+        <button type="submit">Send Message</button>
+
+        <p class="success-message" id="successMessage" style="display:none;">
+            ✔ Message sent successfully! I will get back to you soon.
+        </p>
     </form>
-  </section>
+</section>
 
-  <script>
-    const form = document.getElementById('contact-form');
-    const messages = document.getElementById('form-messages');
+<footer class="footer">
+    © 2025 PatStar — All rights reserved.
+</footer>
 
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault();
+<script src="menu.js"></script>
 
-      const formData = new FormData(form);
-
-      const response = await fetch(form.action, {
-        method: form.method,
-        body: formData,
-        headers: { 'Accept': 'application/json' }
-      });
-
-      if(response.ok){
-        messages.innerHTML = '<p class="success-message">Thank you! Your message has been sent.</p>';
-        form.reset();
-      } else {
-        messages.innerHTML = '<p class="error-message">Oops! There was a problem, please try again.</p>';
-      }
-    });
-  </script>
+<script>
+    // Formspree success message without leaving page
+    if (window.location.hash === "#success") {
+        document.getElementById("successMessage").style.display = "block";
+    }
+</script>
 
 </body>
 </html>
