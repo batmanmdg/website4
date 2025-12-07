@@ -23,7 +23,6 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-sizing: border-box;
 }
 
 nav .logo {
@@ -66,22 +65,22 @@ nav .logo {
 
 /* Mobile menu */
 @media screen and (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+
   .nav-links {
     display: none;
     flex-direction: column;
     width: 100%;
-    margin-top: 10px;
-    gap: 10px;
     background: #1F5A3A;
     padding: 10px 0;
+    margin-top: 10px;
+    gap: 10px;
     border-radius: 0 0 8px 8px;
   }
 
   .nav-links.show {
-    display: flex;
-  }
-
-  .hamburger {
     display: flex;
   }
 }
