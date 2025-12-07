@@ -1,76 +1,162 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact - PatStar</title>
-  <link rel="stylesheet" href="contact.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact</title>
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0c0c0c;
+      color: white;
+    }
+
+    /* Navbar */
+    nav {
+      width: 100%;
+      background: #111;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      color: #2E8B57;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 60px auto;
+      padding: 20px;
+      background: #111;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    }
+
+    input, textarea {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 6px;
+    }
+
+    button {
+      background: #2E8B57;
+      padding: 12px 20px;
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 16px;
+      border-radius: 6px;
+    }
+
+    /* Popup */
+    .popup {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .popup-box {
+      background: #fff;
+      color: #000;
+      padding: 25px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 300px;
+    }
+
+    .popup-box button {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: #2E8B57;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+  </style>
 </head>
+
 <body>
 
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="logo">PatStar</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
-    </ul>
+  <nav>
+    <div style="font-size: 22px; font-weight: bold;">PatStar</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
+    </div>
   </nav>
 
-  <!-- Contact Section -->
-  <section class="contact-section">
-    <h2>Contact Us</h2>
+  <div class="container">
+    <h2>Contact Me</h2>
 
-    <form id="contact-form" class="contact-form">
-      <label>Name</label>
-      <input type="text" name="name" required>
-
-      <label>Email</label>
-      <input type="email" name="email" required>
-
-      <label>Message</label>
-      <textarea name="message" rows="5" required></textarea>
-
-      <button type="submit" class="animated-btn">Send Message</button>
+    <form id="contact-form">
+      <input type="text" name="name" placeholder="Your name" required />
+      <input type="email" name="email" placeholder="Your email" required />
+      <textarea name="message" rows="6" placeholder="Your message" required></textarea>
+      <button type="submit">Send Message</button>
     </form>
-  </section>
+  </div>
 
   <!-- Popup -->
   <div id="popup" class="popup hidden">
     <div class="popup-box">
-      <p id="popup-message"></p>
+      <h2>Message Sent!</h2>
+      <p>Thank you for contacting me.</p>
       <button onclick="closePopup()">OK</button>
     </div>
   </div>
 
+  <!-- Formspree Script -->
   <script>
-    const form = document.getElementById('contact-form');
-    const popup = document.getElementById('popup');
-    const popupMessage = document.getElementById('popup-message');
+    document.getElementById("contact-form").addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    form.addEventListener('submit', async function(e) {
-      e.preventDefault(); // prevent redirect
-
-      const formData = new FormData(form);
+      const form = e.target;
+      const data = new FormData(form);
 
       const response = await fetch("https://formspree.io/f/xzzgzvrr", {
         method: "POST",
-        body: formData,
+        body: data,
         headers: { "Accept": "application/json" }
       });
 
       if (response.ok) {
-        popupMessage.textContent = "✔ Thank you! Your message has been sent.";
-        popup.classList.remove("hidden");
+        document.getElementById("popup").classList.remove("hidden");
         form.reset();
       } else {
-        popupMessage.textContent = "❌ Something went wrong. Please try again.";
-        popup.classList.remove("hidden");
+        alert("There was an issue sending your message. Try again.");
       }
     });
 
     function closePopup() {
-      popup.classList.add("hidden");
+      document.getElementById("popup").classList.add("hidden");
     }
   </script>
 

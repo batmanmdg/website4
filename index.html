@@ -1,41 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PatStar</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PatStar - Home</title>
 
-    <!-- SEO -->
-    <meta name="description" content="PatStar — Welcome to my official website. Contact me anytime through the form.">
-    <meta name="keywords" content="PatStar, contact, website">
-    <meta name="author" content="PatStar">
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0c0c0c;
+      color: white;
+    }
 
-    <link rel="stylesheet" href="style.css">
+    /* Navbar */
+    nav {
+      width: 100%;
+      background: #111;
+      padding: 15px 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin-left: 15px;
+      font-size: 18px;
+    }
+
+    nav a:hover {
+      color: #2E8B57;
+    }
+
+    /* Home container */
+    .container {
+      max-width: 700px;
+      margin: 60px auto;
+      padding: 20px;
+      background: #111;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+    }
+  </style>
 </head>
+
 <body>
 
-<nav class="navbar">
-    <div class="nav-container">
-        <div class="nav-title">PatStar</div>
-        <div class="nav-toggle" id="menuToggle">☰</div>
-
-        <ul class="nav-links" id="navMenu">
-            <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
+  <!-- Navbar -->
+  <nav>
+    <div style="font-size: 22px; font-weight: bold;">PatStar</div>
+    <div>
+      <a href="index.html">Home</a>
+      <a href="contact.html">Contact</a>
     </div>
-</nav>
+  </nav>
 
-<section class="content">
-    <h1>Welcome to the Website</h1>
-    <p>This is the official PatStar homepage.</p>
-</section>
-
-<footer class="footer">
-    © 2025 PatStar — All rights reserved.
-</footer>
-
-<script src="menu.js"></script>
+  <!-- Home Content -->
+  <div class="container">
+    <h1>Welcome to PatStar</h1>
+    <p>Your tech support & services website.</p>
+  </div>
 
 </body>
 </html>
