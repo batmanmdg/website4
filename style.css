@@ -1,6 +1,6 @@
 body {
     margin: 0;
-    background-color: #0b3d0b;
+    background-color: #228B22;
     font-family: Arial, sans-serif;
     color: white;
     animation: fadePage 0.5s ease;
@@ -13,12 +13,13 @@ body {
 
 /* NAVBAR */
 .navbar {
-    background-color: rgba(0, 0, 0, 0.45);
+    background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(4px);
     position: sticky;
     top: 0;
     width: 100%;
     z-index: 1000;
+    color: white;
 }
 
 .nav-container {

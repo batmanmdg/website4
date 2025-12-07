@@ -1,70 +1,177 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PatStar - Home</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PatStar - Home</title>
 
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0c0c0c;
-      color: white;
-    }
+<style>
+/* Body & colors */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #2E8B57; /* Forest green */
+  color: white;
+}
 
-    /* Navbar */
-    nav {
-      width: 100%;
-      background: #111;
-      padding: 15px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+/* Navbar */
+nav {
+  width: 100%;
+  background: #1F5A3A;
+  padding: 15px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-sizing: border-box;
+}
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin-left: 15px;
-      font-size: 18px;
-    }
+nav .logo {
+  font-size: 22px;
+  font-weight: bold;
+  flex-shrink: 0;
+}
 
-    nav a:hover {
-      color: #2E8B57;
-    }
+nav .nav-links {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+}
 
-    /* Home container */
-    .container {
-      max-width: 700px;
-      margin: 60px auto;
-      padding: 20px;
-      background: #111;
-      border-radius: 10px;
-      box-shadow: 0 0 15px rgba(255,255,255,0.1);
-    }
-  </style>
+nav .nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  white-space: nowrap;
+}
+
+nav .nav-links li a:hover {
+  color: #00FF7F;
+}
+
+/* Hamburger */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: white;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Mobile menu */
+@media screen and (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #1F5A3A;
+    flex-direction: column;
+    width: 100%;
+    max-width: 250px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .nav-links.show {
+    transform: translateX(0);
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* Container */
+.container {
+  max-width: 700px;
+  margin: 60px auto;
+  padding: 20px;
+  background: rgba(0,0,0,0.3);
+  border-radius: 10px;
+  text-align: center;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  background: #006400;
+  color: white;
+  padding: 12px 20px;
+  text-decoration: none;
+  border-radius: 6px;
+  transition: transform 0.2s ease, background 0.3s ease;
+  margin-top: 10px;
+}
+
+.btn:hover {
+  background: #004d00;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 15px;
+  margin-top: 30px;
+  background: rgba(0,0,0,0.3);
+  font-size: 14px;
+}
+</style>
 </head>
 
 <body>
 
-  <!-- Navbar -->
-  <nav>
-    <div style="font-size: 22px; font-weight: bold;">PatStar</div>
-    <div>
-      <a href="index.html">Home</a>
-      <a href="contact.html">Contact</a>
-    </div>
-  </nav>
-
-  <!-- Home Content -->
-  <div class="container">
-    <h1>Welcome to PatStar</h1>
-    <p>Your tech support & services website.</p>
+<!-- Navbar -->
+<nav>
+  <div class="logo">PatStar</div>
+  <ul class="nav-links">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
   </div>
+</nav>
+
+<!-- Main content -->
+<div class="container">
+  <h1>Welcome to PatStar</h1>
+  <p>Your tech support and services website. Explore our contact page to get in touch!</p>
+  <a href="contact.html" class="btn">Contact Me</a>
+</div>
+
+<!-- Footer -->
+<footer>
+  &copy; 2025 PatStar. All rights reserved.
+</footer>
+
+<script>
+const hamburger = document.getElementById("hamburger");
+const navLinks = document.querySelector(".nav-links");
+
+hamburger.addEventListener("click", () => {
+  navLinks.classList.toggle("show");
+});
+</script>
 
 </body>
 </html>
